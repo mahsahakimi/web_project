@@ -1,0 +1,48 @@
+/* @import url('https://fonts.googleapis.com/css2?family=Sigmar+One&display=swap');
+.sigmar-one-regular {
+    font-family: "Sigmar One", sans-serif;
+    font-style: normal;
+  }
+   */
+   
+nav {
+    display: flex;
+    background-color: #f06236;
+}
+@media only screen and (min-width: 628px) {
+    nav {
+        flex-direction: row;
+    }
+}
+@media only screen and (max-width: 628px) {
+    nav {
+        flex-direction: column;
+    }
+    nav a {
+        width: 94.5%;
+    }
+}
+
+nav a {
+    color: #010101;
+    /* background-color: #fcc809; */
+    text-decoration: none;
+    text-align: center;
+    font-size: large;
+    font-weight: bolder;
+    padding: 2%;
+    margin: 0.5% auto;
+}
+nav a:hover {
+    color: #414342;
+    background-color: #fcc809;
+}
+nav a:active {
+    background-color: aquamarine;
+}
+
+
+
+body {
+    background-color: #fdfdfd;
+}
