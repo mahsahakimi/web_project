@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <!-- <title>Home</title> -->
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel='stylesheet' type='text/css' media='screen' href='style.css'>
+    <link rel='stylesheet' type='text/css' media='screen' href='problem.css'>
+    <!-- <script src='main.js'></script> -->
+    <script>
+        function changeAlert(){
+            let labelElem = document.querySelector("label");
+            let selectionOption = document.querySelector("select").value;
+
+            if (selectionOption == "nothing") {
+                labelElem.innerText = "Category*:";
+                labelElem.style.color = "red";
+            }
+            else {
+                labelElem.innerText = "Category:";
+                labelElem.style.color = "black";
+            }
+        }
+    </script>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="#">Teachers</a>
+        <a href="#">Students</a>
+        <a href="problems.html" class="pwd">Problems</a>
+        <a href="login.html">Log in</a> 
+        <!-- <a href="#">Profile</a> -->
+    </nav>
+    <main id="page">
+
+        <label for="category">Category:</label>
+        <select class="form-control" id="category" onchange="changeAlert()">
+            <option value="nothing">select</option>
+            <option value="animal">animal</option>
+            <option value="custom">custom</option>
+        </select>
+        <input type="text" class="categoryInput" placeholder="add new category..." />
+        <button class="categoryButton">add</button>
+        <p class="output"></p>
+        <script>
+            const categoryInput = document.querySelector('.categoryInput');
+            const categoryButton = document.querySelector('.categoryButton');
+            const output = document.querySelector('.output');
+
+            // Event listener for input change
+            categoryInput.addEventListener('input', function() {
+                output.textContent = categoryInput.value;
+            });
+
+            // Event listener for button click
+            categoryButton.addEventListener('click', function() {
+                let newOption = document.createElement("option");
+                newOption.innerText = categoryInput.value;
+                newOption.setAttribute("value",categoryInput.value);
+                document.querySelector("select").appendChild(newOption);
+            });
+        </script>
+    </main>
+</body>
+</html>
