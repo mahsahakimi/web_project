@@ -1,11 +1,15 @@
-/* @import url('https://fonts.googleapis.com/css2?family=Sigmar+One&display=swap');
-.sigmar-one-regular {
-    font-family: "Sigmar One", sans-serif;
-    font-style: normal;
-  }
-   */
+header {
+    text-align: center;
+    font-size: xx-large;
+    font-weight: bolder;
+    padding: 2%;
+    margin: 0.5% auto;
+}
    
 nav {
+    width: 98%;
+    /* border: 3px solid #73AD21; */
+    margin: auto;
     display: flex;
     background-color: #f06236;
 }
@@ -23,10 +27,13 @@ nav {
     }
 }
 
+a {
+    text-decoration: none;  
+}
+
 nav a {
     color: #010101;
     /* background-color: #fcc809; */
-    text-decoration: none;
     text-align: center;
     font-size: large;
     font-weight: bolder;
@@ -41,8 +48,25 @@ nav a:active {
     background-color: aquamarine;
 }
 
+.pwd {
+    background-color: aquamarine;
+}
 
+article {
+    text-align: center;
+    padding: 10%;
+    margin: 1%;
+    border: 3px solid #73AD21;
+}
+
+#big-button {
+    display: inline-block;
+    margin: 10%;
+    background-color: #f06236;
+    padding: 3%;
+}
 
 body {
-    background-color: #fdfdfd;
+    margin: 1%;
+    background-color: #414342;
 }
