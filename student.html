@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Teachers page</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel='stylesheet' type='text/css' media='screen' href='style.css'>
+    <link rel='stylesheet' type='text/css' media='screen' href='student.css'>
+    <!-- <script src='main.js'></script> -->
+</head>
+<body>
+    <!-- Navbar -->
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="teacher.html">Teachers</a>
+        <a href="student.html" class="pwd">Students</a>
+        <a href="problems.html">Problems</a>
+        <a href="login.html">Log in</a> 
+        <!-- <a href="#">Profile</a> -->
+    </nav>
+    <main>
+        <h1>All Students</h1>
+        <table id="studentsTable">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Score</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><a href="#">Mahsa</a></td>
+                    <td><a href="#">10</a></td>
+                </tr>
+                <tr>
+                    <td><a href="#">Kasra</a></td>
+                    <td><a href="#">8</a></td>
+                </tr>
+                <tr>
+                    <td><a href="#">Sina</a></td>
+                    <td><a href="#">12</a></td>
+                </tr>
+            </tbody>
+        </table>
+    </main>
+
+    <script>
+        function sortTableByScore() {
+            let table = document.getElementById("studentsTable");
+            let rows = Array.from(table.rows).slice(1); 
+
+            rows.sort((a, b) => {
+                let scoreA = parseInt(a.cells[1].innerText);
+                let scoreB = parseInt(b.cells[1].innerText);
+                return scoreB - scoreA; 
+            });
+
+            let tbody = table.tBodies[0];
+            tbody.append(...rows);
+        }
+
+        window.onload = sortTableByScore;
+    </script>
+</body>
+</html>
