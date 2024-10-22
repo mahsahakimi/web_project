@@ -3,11 +3,14 @@ select {
 }
 
 .categoryInput {
+    border-radius: 50px;
 
 }
 
 .categoryButton {
-
+    border-radius: 50px;
+    color: red;
+    background-color: inherit;
 }
 
 .output {
