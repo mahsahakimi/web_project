@@ -22,40 +22,59 @@
         </nav>
     </header>
     <main>
-        <article>
-            <a href="problem.html" id="add">
-                +
-            </a>
-            <a href="#" id="problem">
-                Problem
-            </a>
-            <a href="#">
-                Solved
-            </a>
-            <a href="#">
-                Hardness
-            </a>
-            <a href="#">
-                Label
-            </a>
-        </article>
-        <article>
-            <a href="#" class="add">
-                o
-            </a>
-            <a href="#" class="problem">
-                Test
-            </a>
-            <a href="#">
-                20
-            </a>
-            <a href="#">
-                Hard
-            </a>
-            <a href="#">
-                Math
-            </a>
-        </article>
+        <h1>All Problems</h1>
+        <table id="problemsTable">
+            <thead>
+                <tr>
+                    <th id="add"><a href="problem.html">+</a></th>
+                    <th>Problem</th>
+                    <th>Hardness</th>
+                    <th>Solved</th>
+                    <th>Label</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <th>Y</th>
+                    <td><a href="#">N-Queen</a></td>
+                    <td>Hard</td>
+                    <td><a href="#">20</a></td>
+                    <td><a href="#">CS</a></td>
+                </tr>
+                <tr>
+                    <th>N</th>
+                    <td><a href="#">Sub</a></td>
+                    <td>Easy</td>
+                    <td><a href="#">245</a></td>
+                    <td><a href="#">Math</a></td>
+                </tr>
+                <tr>
+                    <th>N</th>
+                    <td><a href="#">Iran</a></td>
+                    <td>Hard</td>
+                    <td><a href="#">80</a></td>
+                    <td><a href="#">History</a></td>
+                </tr>
+            </tbody>
+        </table>
     </main>
+
+    <script>
+        function sortTableByQuestionCount() {
+            let table = document.getElementById("problemsTable");
+            let rows = Array.from(table.rows).slice(1); 
+
+            rows.sort((a, b) => {
+                let questiosA = parseInt(a.cells[3].innerText);
+                let questionsB = parseInt(b.cells[3].innerText);
+                return questionsB - questiosA; 
+            });
+
+            let tbody = table.tBodies[0];
+            tbody.append(...rows);
+        }
+
+        window.onload = sortTableByQuestionCount;
+    </script>
 </body>
 </html>
