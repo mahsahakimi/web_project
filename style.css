@@ -1,73 +1,76 @@
-header {
-    text-align: center;
-    font-size: xx-large;
-    font-weight: bolder;
-    padding: 2%;
-    margin: 0.5% auto;
-}
-   
-nav {
-    width: 98%;
-    /* border-radius: 5px; */
-    /* border: 3px solid #73AD21; */
-    margin: auto;
-    display: flex;
-    background-color: #f06236;
-}
-@media only screen and (min-width: 628px) {
-    nav {
-        flex-direction: row;
-    }
-}
-@media only screen and (max-width: 628px) {
-    nav {
-        flex-direction: column;
-    }
-    nav a {
-        width: 94.5%;
-    }
-}
-
 a {
     text-decoration: none;  
 }
 
-nav a {
-    color: #010101;
-    /* background-color: #fcc809; */
-    text-align: center;
-    font-size: large;
-    font-weight: bolder;
-    padding: 2%;
-    margin: 0.5% auto;
-}
-nav a:hover {
-    color: #414342;
-    background-color: #fcc809;
-}
-nav a:active {
-    background-color: aquamarine;
+.topnav {
+    overflow: hidden;
+    background-color: #333;
+    position: relative;
 }
 
-.pwd {
-    background-color: aquamarine;
+.topnav a {
+    color: white;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 17px;
+    display: flex;
 }
 
-#page {
-    text-align: center;
-    padding: 10%;
-    margin: 1%;
-    border: 3px solid #73AD21;
+.topnav a:hover {
+    background-color: #ddd;
+    color: black;
+}
+
+.topnav  .active {
+    background-color: #ddd;
+    color: black;
 }
 
 #big-button {
+    border-radius: 5px;
     display: inline-block;
-    margin: 10%;
+    margin: auto;
     background-color: #f06236;
     padding: 3%;
+    font-weight: 700;
+}
+
+.topnav a:active {
+    background-color: #f06236;
+}   
+
+
+
+
+@media only screen and (max-width: 628px) {
+    .topnav a.icon {
+        background: black;
+        display: block;
+        position: absolute;
+        right: 0;
+        top: 0;
+    }
+    .topnav #myLinks {
+        display: none;
+    }
+}
+
+@media only screen and (min-width: 628px) {
+    .topnav a.icon {
+        display: none;
+    }
+    .topnav #myLinks {
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-start;
+    }
+    .topnav a {
+        display: flex;
+    }    
 }
 
 body {
-    margin: 1%;
-    background-color: #BFBBB8;
+    margin: auto;
+    text-align: center;
+    font-family: Arial, Helvetica, sans-serif;
 }
