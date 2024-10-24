@@ -7,11 +7,13 @@ header {
 }
    
 nav {
-    width: 98%;
+    width: 100%;
     /* border: 3px solid #73AD21; */
     margin: auto;
     display: flex;
-    background-color: #f06236;
+    background-color: #1f535f;
+    border-bottom-left-radius: 10px; 
+    border-bottom-right-radius: 10px; 
 }
 @media only screen and (min-width: 628px) {
     nav {
@@ -23,7 +25,7 @@ nav {
         flex-direction: column;
     }
     nav a {
-        width: 94.5%;
+        width: 100%;
     }
 }
 
@@ -38,18 +40,18 @@ nav a {
     font-size: large;
     font-weight: bolder;
     padding: 2%;
-    margin: 0.5% auto;
+    margin: 0% auto;
 }
 nav a:hover {
     color: #414342;
-    background-color: #fcc809;
+    background-color: #f5f4f4;
 }
 nav a:active {
     background-color: aquamarine;
 }
 
 .pwd {
-    background-color: aquamarine;
+    background-color: #f5f4f4;
 }
 
 #page {
@@ -67,6 +69,6 @@ nav a:active {
 }
 
 body {
-    margin: 1%;
-    background-color: #414342;
+    margin: 0%;
+    background-color: #f5f4f4;
 }
