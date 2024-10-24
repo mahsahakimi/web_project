@@ -11,7 +11,6 @@ a {
 .topnav a {
     color: white;
     padding: 14px 16px;
-    text-decoration: none;
     font-size: 17px;
     display: flex;
 }
@@ -21,7 +20,7 @@ a {
     color: black;
 }
 
-.topnav  .active {
+.topnav .active {
     background-color: #ddd;
     color: black;
 }
@@ -38,9 +37,6 @@ a {
 .topnav a:active {
     background-color: #f06236;
 }   
-
-
-
 
 @media only screen and (max-width: 628px) {
     .topnav a.icon {
@@ -59,14 +55,22 @@ a {
     .topnav a.icon {
         display: none;
     }
-    .topnav #myLinks {
+    .topnav #myLinks, a {
         display: flex;
         flex-direction: row;
         justify-content: flex-start;
     }
-    .topnav a {
+    .topnav {
         display: flex;
-    }    
+        flex-direction: row;
+        justify-content: flex-start;
+    }   
+
+    #right {
+        position: absolute;
+        right: 0;
+    }
+     
 }
 
 body {

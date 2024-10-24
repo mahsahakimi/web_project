@@ -7,7 +7,8 @@
     <meta name='viewport' content='width=device-width, initial-scale=1'>
     <link rel='stylesheet' type='text/css' media='screen' href='style.css'>
     <link rel='stylesheet' type='text/css' media='screen' href='problem.css'>
-    <!-- <script src='main.js'></script> -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src='main.js'></script>
     <script>
         function changeAlert(){
             let labelElem = document.querySelectorAll("label")[3];
@@ -25,13 +26,17 @@
 <body>
     <header>
         <!-- Navbar -->
-        <nav>
+        <nav class="topnav">
             <a href="index.html">Home</a>
-            <a href="teacher.html">Teachers</a>
-            <a href="student.html">Students</a>
-            <a href="problems.html" class="pwd">Problems</a>
-            <a href="login.html">Log in</a> 
-            <!-- <a href="#">Profile</a> -->
+            <div id="myLinks">
+                <a href="teacher.html">Teachers</a>
+                <a href="student.html">Students</a>
+                <a href="problems.html">Problems</a>
+                <a href="#" id="right">Profile</a> 
+            </div>
+            <a  class="icon" onclick="myFunction()">
+                <i class="fa fa-bars"></i>
+            </a>
         </nav>
     </header>
     <div class="problem-container">
