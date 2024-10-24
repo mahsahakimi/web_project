@@ -10,16 +10,14 @@
     <!-- <script src='main.js'></script> -->
     <script>
         function changeAlert(){
-            let labelElem = document.querySelector("label");
-            let selectionOption = document.querySelector("select").value;
+            let labelElem = document.querySelectorAll("label")[3];
+            let selectionOption = document.querySelectorAll("select")[1].value;
 
-            if (selectionOption == "nothing") {
-                labelElem.innerText = "Category*:";
-                labelElem.style.color = "red";
+            if (selectionOption == "custom") {
+                document.getElementById("add-cat").hidden = false;
             }
             else {
-                labelElem.innerText = "Category:";
-                labelElem.style.color = "black";
+                document.getElementById("add-cat").hidden = true;
             }
         }
     </script>
@@ -36,7 +34,101 @@
             <!-- <a href="#">Profile</a> -->
         </nav>
     </header>
-    <main id="page">
+    <div class="problem-container">
+        <h2>Problem</h2>
+        <form id="problem" class="tab-content">
+            <div class="input-box">
+                <label for="titleInput">Title</label>
+                <input type="text" id="titleInput" name="titleInput" class="titleInput" placeholder="Candy" required />
+            </div>
+            <div class="input-box">
+                <label for="contentInput">Content</label>
+                <textarea name="contentInput" id="contentInput" rows="4" cols="50" placeholder="Content" required></textarea>
+            </div>
+            <div style="display: flex; flex-direction: column;" class="input-box">
+                <div style="display: flex; flex-direction: row;">
+                    <input type="checkbox" name="checkbox" checked />
+                    <input type="text" name="option1Input" class="optionInput" placeholder="option1" id="option1" required/>
+                </div>
+                <div style="display: flex; flex-direction: row;">
+                    <input type="checkbox" name="checkbox" />
+                    <input type="text" name="option2Input" class="optionInput" placeholder="option2" required/>
+                </div>
+                <div style="display: flex; flex-direction: row;">
+                    <input type="checkbox" name="checkbox" />
+                    <input type="text" name="option3Input" class="optionInput" placeholder="option3" required/>
+                </div>
+                <div style="display: flex; flex-direction: row;">
+                    <input type="checkbox" name="checkbox" />
+                    <input type="text" name="option1Input" class="optionInput" placeholder="option4" required/>
+                </div>
+                <script>
+                    const checkboxs = document.querySelectorAll("input[name=checkbox]");
+                    let correctIndex = 1;
+                    for (let optionIndex = 0; optionIndex < 4; optionIndex++) {
+                        checkboxs[optionIndex].addEventListener('change', function() {
+                        if (this.checked) {
+                            if (correctIndex != 0) {
+                                checkboxs[correctIndex - 1].checked = false;
+                                correctIndex = optionIndex + 1;
+                            }
+                        } else {
+                            checkboxs[optionIndex].checked =true;
+                        }
+                        });
+                    }
+                </script>
+
+                <div class="input-box">
+                    <label for="difficulty">Difficulty</label>
+                    <select id="difficulty" name="difficulty" required>
+                        <option selected disabled hidden value="">select hardness</option>
+                        <option value="easy">Easy</option>
+                        <option value="medium">Medium</option>
+                        <option value="hard">Hard</option>    
+                    </select>
+                </div>
+                
+                <div class="input-box">
+                    <label for="category">Category</label>
+                    <select id="category" name="category" onchange="changeAlert()" required>
+                        <option selected disabled hidden value="">select</option>
+                        <option value="math">math</option>
+                        <option value="animal">animal</option>
+                        <option value="custom">custom</option>
+                    </select>
+                </div>
+
+                <div id="add-cat" hidden>
+                    <input type="text" class="categoryInput" placeholder="add new category..." />
+                    <button type="button" class="categoryButton submit-btn">add</button>
+                </div>
+
+                
+
+                <script>
+                    const categoryInput = document.querySelector('.categoryInput');
+                    const categoryButton = document.querySelector('.categoryButton');
+    
+                    categoryButton.addEventListener('click', function() {
+                        let newOption = document.createElement("option");
+                        newOption.innerText = categoryInput.value;
+                        newOption.setAttribute("value",categoryInput.value);
+                        let selectionBox = document.querySelectorAll("select")[1];
+                        selectionBox.appendChild(newOption);
+                        selectionBox.value = newOption.innerText;
+                        document.getElementById("add-cat").hidden = true;
+                    });
+                </script>
+                <button type="submit" class="submit-btn">Submit</button>
+            </div>
+            
+        </form>
+
+        
+    </div>
+
+    <!-- <main id="page">
         <article style="display: flex; flex-direction: column;">
             <input type="text" class="titleInput" placeholder="title" />
             <textarea name="contentInput" rows="4" cols="50" placeholder="content"></textarea>
@@ -76,13 +168,13 @@
             </article>
         </article>
         <article>
-            <label for="category">Category:</label>
-            <select class="form-control" id="category" onchange="changeAlert()">
-                <option value="nothing">select</option>
+            <select name="category" onchange="changeAlert()">
+                <option selected disabled hidden>choose a category</option>
+                <option value="math">math</option>
                 <option value="animal">animal</option>
                 <option value="custom">custom</option>
             </select>
-            <div>
+            <div id="add-cat" hidden>
                 <input type="text" class="categoryInput" placeholder="add new category..." />
                 <button class="categoryButton">add</button>
             </div>
@@ -102,12 +194,14 @@
                     let newOption = document.createElement("option");
                     newOption.innerText = categoryInput.value;
                     newOption.setAttribute("value",categoryInput.value);
-                    document.querySelector("select").appendChild(newOption);
+                    let selectionBox = document.querySelector("select");
+                    selectionBox.appendChild(newOption);
+                    selectionBox.value = newOption.innerText;
                 });
             </script>
         </article>
         
         
-    </main>
+    </main> -->
 </body>
 </html>

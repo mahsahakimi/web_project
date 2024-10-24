@@ -1,18 +1,107 @@
+.problem-container {
+    margin: auto;
+    background: #414342;
+    padding: 20px;
+    border-radius: 8px;
+    width: 100%;
+    max-width: 400px;
+    box-sizing: border-box;
+}
+
+h2 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.tab-container {
+    display: flex;
+    margin-bottom: 20px;
+}
+
+.tab-content {
+    display: block;
+}
+
+.input-box {
+    margin-bottom: 15px;
+    position: relative;
+}
+
+.input-box label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+.input-box select {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    box-sizing: border-box;
+    margin-bottom: 5px;
+}
+
+.input-box select {
+    background: #fff;
+}
+
+
+.submit-btn {
+    width: 100%;
+    padding: 10px;
+    background: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+.submit-btn:hover {
+    background: #0056b3;
+}
+
+.input-box input, textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    box-sizing: border-box;
+    margin-bottom: 5px;
+}
+
+
+@media only screen and (max-width: 628px) {
+    .problem-container {
+        padding: 15px;
+        width: 90%;
+    }
+
+    h2 {
+        font-size: 20px;
+    }
+
+    .submit-btn {
+        padding: 8px;
+    }
+}
+
+/* 
 select {
     background-color: blueviolet;
 }
 
 .categoryInput {
-    border-radius: 50px;
+    /* border-radius: 50px;
 
 }
 
 .categoryButton {
-    border-radius: 50px;
-    color: red;
-    background-color: inherit;
+    /* border-radius: 50px; */
+    /* color: red; */
+    /* background-color: inherit; 
 }
 
 .output {
     
-}
+} */
