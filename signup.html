@@ -8,6 +8,7 @@
     <link rel='stylesheet' type='text/css' media='screen' href='style.css'>
     <link rel='stylesheet' type='text/css' media='screen' href='signup.css'>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     <script src='main.js'></script>
 </head>
 <body>
@@ -40,12 +41,12 @@
             <div class="input-box">
                 <label for="password">Password</label>
                 <input type="password" id="password" name="password" required>
-                <button type="button" class="toggle-password-btn" onclick="togglePasswordVisibility('password', this)">Show Password</button>
+                <i class="fa fa-eye toggle-password-btn" onclick="togglePasswordVisibility('password', this)"></i>
             </div>
             <div class="input-box">
                 <label for="confirm-password">Confirm Password</label>
                 <input type="password" id="confirm-password" name="confirm-password" required>
-                <button type="button" class="toggle-password-btn" onclick="togglePasswordVisibility('confirm-password', this)">Show Password</button>
+                <i class="fa fa-eye toggle-password-btn" onclick="togglePasswordVisibility('confirm-password', this)"></i>
             </div>
             <div class="input-box">
                 <label for="role">Role</label>
@@ -66,7 +67,8 @@
         const isPasswordVisible = passwordInput.type === 'text';
     
         passwordInput.type = isPasswordVisible ? 'password' : 'text';
-        toggleButton.textContent = isPasswordVisible ? 'Show Password' : 'Hide Password';
+        toggleButton.classList.toggle('fa-eye', isPasswordVisible);
+        toggleButton.classList.toggle('fa-eye-slash', !isPasswordVisible);
     }
     </script>
 </body>
