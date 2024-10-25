@@ -7,7 +7,8 @@
     <meta name='viewport' content='width=device-width, initial-scale=1'>
     <link rel='stylesheet' type='text/css' media='screen' href='style.css'>
     <link rel='stylesheet' type='text/css' media='screen' href='problem.css'>
-    <!-- <script src='main.js'></script> -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src='main.js'></script>
     <script>
         function changeAlert(){
             let labelElem = document.querySelectorAll("label")[3];
@@ -35,13 +36,17 @@
     <main id="page">
     <header>
         <!-- Navbar -->
-        <nav>
+        <nav class="topnav">
             <a href="index.html">Home</a>
-            <a href="teacher.html">Teachers</a>
-            <a href="student.html">Students</a>
-            <a href="problems.html" class="pwd">Problems</a>
-            <a href="login.html">Log in</a> 
-            <!-- <a href="#">Profile</a> -->
+            <div id="myLinks">
+                <a href="teacher.html">Teachers</a>
+                <a href="student.html">Students</a>
+                <a href="problems.html">Problems</a>
+                <a href="#" id="right">Profile</a> 
+            </div>
+            <a  class="icon" onclick="myFunction()">
+                <i class="fa fa-bars"></i>
+            </a>
         </nav>
     </header>
     <div class="problem-container">
@@ -132,86 +137,7 @@
                 </script>
                 <button type="submit" class="submit-btn">Submit</button>
             </div>
-            
         </form>
-
-        
     </div>
-
-    <!-- <main id="page">
-        <article style="display: flex; flex-direction: column;">
-            <input type="text" class="titleInput" placeholder="title" />
-            <textarea name="contentInput" rows="4" cols="50" placeholder="content"></textarea>
-            <article style="display: flex; flex-wrap: wrap;">
-                <div>
-                    <input type="checkbox" name="checkbox" checked />
-                    <input type="text" class="optionInput" placeholder="option1" id="option1"/>
-                </div>
-                <div>
-                    <input type="checkbox" name="checkbox" />
-                    <input type="text" class="optionInput" placeholder="option2" />
-                </div>
-                <div>
-                    <input type="checkbox" name="checkbox" />
-                    <input type="text" class="optionInput" placeholder="option3" />
-                </div>
-                <div>
-                    <input type="checkbox" name="checkbox" />
-                    <input type="text" class="optionInput" placeholder="option4" />
-                </div>
-                <script>
-                    const checkboxs = document.querySelectorAll("input[name=checkbox]");
-                    let correctIndex = 1;
-                    for (let optionIndex = 0; optionIndex < 4; optionIndex++) {
-                        checkboxs[optionIndex].addEventListener('change', function() {
-                        if (this.checked) {
-                            if (correctIndex != 0) {
-                                checkboxs[correctIndex - 1].checked = false;
-                                correctIndex = optionIndex + 1;
-                            }
-                        } else {
-                            checkboxs[optionIndex].checked =true;
-                        }
-                        });
-                    }
-                </script>
-            </article>
-        </article>
-        <article>
-            <select name="category" onchange="changeAlert()">
-                <option selected disabled hidden>choose a category</option>
-                <option value="math">math</option>
-                <option value="animal">animal</option>
-                <option value="custom">custom</option>
-            </select>
-            <div id="add-cat" hidden>
-                <input type="text" class="categoryInput" placeholder="add new category..." />
-                <button class="categoryButton">add</button>
-            </div>
-            <p class="output"></p>
-            <script>
-                const categoryInput = document.querySelector('.categoryInput');
-                const categoryButton = document.querySelector('.categoryButton');
-                const output = document.querySelector('.output');
-
-                // Event listener for input change
-                categoryInput.addEventListener('input', function() {
-                    output.textContent = categoryInput.value;
-                });
-
-                // Event listener for button click
-                categoryButton.addEventListener('click', function() {
-                    let newOption = document.createElement("option");
-                    newOption.innerText = categoryInput.value;
-                    newOption.setAttribute("value",categoryInput.value);
-                    let selectionBox = document.querySelector("select");
-                    selectionBox.appendChild(newOption);
-                    selectionBox.value = newOption.innerText;
-                });
-            </script>
-        </article>
-        
-        
-    </main> -->
 </body>
 </html>
