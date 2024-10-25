@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Profile</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel='stylesheet' type='text/css' media='screen' href='style.css'>
+    <link rel='stylesheet' type='text/css' media='screen' href='playerprofile.css'>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src='main.js'></script>
+</head>
+<body>
+    <header>
+        <!-- Navbar -->
+        <nav class="topnav">
+            <a href="index.html">Home</a>
+            <div id="myLinks">
+                <a href="teacher.html">Teachers</a>
+                <a href="student.html">Students</a>
+                <a href="problems.html">Problems</a>
+                <a href="playerprofile.html" id="right" class="active">Profile</a> 
+                <!-- <a href="#">Profile</a> -->
+            </div>
+            <a  class="icon" onclick="myFunction()">
+                <i class="fa fa-bars"></i>
+            </a>
+        </nav>
+    </header>
+    <div class="container">
+        <div class="profile-container">
+            <div class="profile-card">
+                <div class="profile-image-container">
+                    <img src="profile-pic.jpg" alt="Profile Picture" id="profileImage" class="profile-image">
+                    <input type="file" id="imageUpload" accept="image/*" style="display: none;">
+                    <button class="upload-button" onclick="document.getElementById('imageUpload').click();">Change Photo</button>
+                </div>
+                <h1 class="profile-name">Mahsa</h1>
+                
+                <div class="profile-stats">
+                    <div class="stat">
+                        <h2 class="stat-number">250</h2>
+                        <p class="stat-label">Followers</p>
+                    </div>
+                    <div class="stat">
+                        <h2 class="stat-number">180</h2>
+                        <p class="stat-label">Following</p>
+                    </div>
+                    <div>
+                        <h2 class="stat-number">10</h2>
+                        <p class="stat-label">Score</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+            <div class="table-container">
+                <h2>Problems Solved</h2>
+                <table class="questions-table">
+                    <thead>
+                        <tr>
+                            <th>Problem</th>
+                            <th>Hardness</th>
+                            <th>Solved</th>
+                            <th>Label</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><a href="#">Sub</a></td>
+                            <td>Easy</td>
+                            <td><a href="#">245</a></td>
+                            <td><a href="#">Math</a></td>
+                        </tr>
+                        <tr>
+                            <td><a href="#">Iran</a></td>
+                            <td>Easy</td>
+                            <td><a href="#">80</a></td>
+                            <td><a href="#">History</a></td>
+                        </tr>
+                        <tr>
+                            <td><a href="#">N-Queen</a></td>
+                            <td>Hard</td>
+                            <td><a href="#">80</a></td>
+                            <td><a href="#">CS</a></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+    </div>
+    <script>
+        document.getElementById('imageUpload').addEventListener('change', function(event) {
+        const file = event.target.files[0];
+        if (file) {
+            const reader = new FileReader();
+            reader.onload = function(e) {
+                const profileImage = document.getElementById('profileImage');
+                profileImage.src = e.target.result; // Set the image source to the uploaded file's data
+            };
+            reader.readAsDataURL(file); // Read the uploaded file as a Data URL
+        }
+    });
+    </script>
+</body>
+</html>
