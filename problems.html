@@ -88,13 +88,13 @@
         }
 
         window.onresize = function() {
-        let myLinksElement = document.getElementById("myLinks");
-        if (window.innerWidth >= 628) {
-            myLinksElement.style.display = "flex"; 
-        } else {
-            myLinksElement.style.display = "none"; 
-        }
-    };
+            let myLinksElement = document.getElementById("myLinks");
+            if (window.innerWidth >= 628) {
+                myLinksElement.style.display = "flex"; 
+            } else {
+                myLinksElement.style.display = "none"; 
+            }
+        };
 
         window.onload = sortTableByQuestionCount;
     </script>

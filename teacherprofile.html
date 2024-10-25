@@ -11,22 +11,20 @@
     <script src='main.js'></script>
 </head>
 <body>
-    <header>
-        <!-- Navbar -->
-        <nav class="topnav">
-            <a href="index.html">Home</a>
-            <div id="myLinks">
-                <a href="teacher.html">Teachers</a>
-                <a href="student.html">Students</a>
-                <a href="problems.html">Problems</a>
-                <a href="playerprofile.html" id="right" class="active">Profile</a> 
-                <!-- <a href="#">Profile</a> -->
-            </div>
-            <a  class="icon" onclick="myFunction()">
-                <i class="fa fa-bars"></i>
-            </a>
-        </nav>
-    </header>
+    <!-- Navbar -->
+    <nav class="topnav">
+        <a href="index.html">Home</a>
+        <div id="myLinks">
+            <a href="teacher.html">Teachers</a>
+            <a href="student.html">Students</a>
+            <a href="problems.html">Problems</a>
+            <a href="playerprofile.html" id="right" class="active">Profile</a> 
+            <!-- <a href="#">Profile</a> -->
+        </div>
+        <a  class="icon" onclick="myFunction()">
+            <i class="fa fa-bars"></i>
+        </a>
+    </nav>
     <div class="container">
         <div class="profile-container">
             <div class="profile-card">
@@ -93,6 +91,24 @@
             reader.readAsDataURL(file); // Read the uploaded file as a Data URL
         }
     });
+    function myFunction() {
+            let myLinksElement = document.getElementById("myLinks");
+            if (myLinksElement.style.display === "none") {
+                myLinksElement.style.display = "block";
+            } else {
+                myLinksElement.style.display = "none";
+            }
+        }
+
+        window.onresize = function() {
+            let myLinksElement = document.getElementById("myLinks");
+            if (window.innerWidth >= 628) {
+                myLinksElement.style.display = "flex"; 
+            } else {
+                myLinksElement.style.display = "none"; 
+            }
+        };
+
     </script>
 </body>
 </html>
