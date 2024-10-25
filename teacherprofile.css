@@ -21,12 +21,14 @@
 }
 
 .profile-card {
-    background: #414342;
+    background: #f5f4f4;
     padding: 20px;
     border-radius: 15px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     text-align: center;
     width: 100%;
+    border:2px solid black;
+    color: #1f535f;
 }
 
 .profile-image-container {
@@ -40,11 +42,12 @@
     border-radius: 50%;
     object-fit: cover;
     margin-bottom: 10px;
-    border: 3px solid #007BFF;
+    border: 3px solid black;
+    display: block;
 }
 
 .upload-button {
-    background: #007BFF;
+    background: #1f535f;
     color: #fff;
     border: none;
     padding: 5px 10px;
@@ -59,13 +62,13 @@
 
 .table-container {
     flex: 1 1 400px; 
-    background: #414342;
+    background: #f5f4f4;
     border-radius: 15px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     padding: 20px;
     overflow-x: auto;
-    color: white;
-}
+    color: #1f535f;
+    border: 3px solid black;}
 
 .questions-table {
     width: 100%;
@@ -105,7 +108,7 @@
 }
 
 .profile-stats {
-    display: flex;
+    display: inline-block;
     justify-content: center;
     gap: 40px;
     margin-bottom: 20px;
@@ -117,7 +120,7 @@
 
 .stat-number {
     font-size: 20px;
-    color: #007BFF;
+    color: #1f535f;
     margin: 0;
 }
 
@@ -134,7 +137,7 @@
 
 .social-link {
     text-decoration: none;
-    background: #007BFF;
+    background: #1f535f;
     color: white;
     padding: 10px 15px;
     border-radius: 5px;
