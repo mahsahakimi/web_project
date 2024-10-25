@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Problems Bank</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel='stylesheet' type='text/css' media='screen' href='style.css'>
+    <link rel='stylesheet' type='text/css' media='screen' href='problems.css'>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src='main.js'></script>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="topnav">
+        <a href="index.html">Home</a>
+        <div id="myLinks">
+            <a href="teacher.html">Teachers</a>
+            <a href="student.html">Students</a>
+            <a href="problems.html" class="active">Problems</a>
+            <a href="login.html" id="right">Log in</a> 
+            <!-- <a href="#">Profile</a> -->
+        </div>
+        <a  class="icon" onclick="myFunction()">
+            <i class="fa fa-bars"></i>
+        </a>
+    </nav>
+    <main>
+        <h1>All Problems</h1>
+        <table id="problemsTable">
+            <thead>
+                <tr>
+                    <th id="add"><a href="problem.html">+</a></th>
+                    <th>Problem</th>
+                    <th>Hardness</th>
+                    <th>Solved</th>
+                    <th>Label</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <th>Y</th>
+                    <td><a href="problemprofile.html">N-Queen</a></td>
+                    <td>Hard</td>
+                    <td><a href="#">20</a></td>
+                    <td><a href="#">CS</a></td>
+                </tr>
+                <tr>
+                    <th>N</th>
+                    <td><a href="problemprofile.html">Sub</a></td>
+                    <td>Easy</td>
+                    <td><a href="#">245</a></td>
+                    <td><a href="#">Math</a></td>
+                </tr>
+                <tr>
+                    <th>N</th>
+                    <td><a href="problemprofile.html">Iran</a></td>
+                    <td>Hard</td>
+                    <td><a href="#">80</a></td>
+                    <td><a href="#">History</a></td>
+                </tr>
+            </tbody>
+        </table>
+    <main>
+
+    <script>
+        function sortTableByQuestionCount() {
+            let table = document.getElementById("problemsTable");
+            let rows = Array.from(table.rows).slice(1); 
+
+            rows.sort((a, b) => {
+                let questiosA = parseInt(a.cells[3].innerText);
+                let questionsB = parseInt(b.cells[3].innerText);
+                return questionsB - questiosA; 
+            });
+
+            let tbody = table.tBodies[0];
+            tbody.append(...rows);
+        }
+        
+        function myFunction() {
+            let myLinksElement = document.getElementById("myLinks");
+            if (myLinksElement.style.display === "none") {
+                myLinksElement.style.display = "block";
+            } else {
+                myLinksElement.style.display = "none";
+            }
+        }
+
+        window.onresize = function() {
+            let myLinksElement = document.getElementById("myLinks");
+            if (window.innerWidth >= 628) {
+                myLinksElement.style.display = "flex"; 
+            } else {
+                myLinksElement.style.display = "none"; 
+            }
+        };
+
+        window.onload = sortTableByQuestionCount;
+    </script>
+</body>
+</html>

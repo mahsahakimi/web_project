@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <!-- <title>Home</title> -->
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel='stylesheet' type='text/css' media='screen' href='style.css'>
+    <link rel='stylesheet' type='text/css' media='screen' href='problem.css'>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src='main.js'></script>
+    <script>
+        function changeAlert(){
+            let labelElem = document.querySelectorAll("label")[3];
+            let selectionOption = document.querySelectorAll("select")[1].value;
+
+            if (selectionOption == "custom") {
+                document.getElementById("add-cat").hidden = false;
+            }
+            else {
+                document.getElementById("add-cat").hidden = true;
+            }
+        }
+    </script>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="topnav">
+        <a href="index.html">Home</a>
+        <div id="myLinks">
+            <a href="teacher.html">Teachers</a>
+            <a href="student.html">Students</a>
+            <a href="problems.html" class="active">Problems</a>
+            <a href="teacherprofile.html" id="right">Profile</a> 
+        </div>
+        <a  class="icon" onclick="myFunction()">
+            <i class="fa fa-bars"></i>
+        </a>
+    </nav>
+    <main id="page">
+    <div class="problem-container">
+        <h2>Problem</h2>
+        <form id="problem" class="tab-content">
+            <div class="input-box">
+                <label for="titleInput">Title</label>
+                <input type="text" id="titleInput" name="titleInput" class="titleInput" placeholder="Candy" required />
+            </div>
+            <div class="input-box">
+                <label for="contentInput">Content</label>
+                <textarea name="contentInput" id="contentInput" rows="4" cols="50" placeholder="Content" required></textarea>
+            </div>
+            <div style="display: flex; flex-direction: column;" class="input-box">
+                <div style="display: flex; flex-direction: row;">
+                    <input type="checkbox" name="checkbox" checked />
+                    <input type="text" name="option1Input" class="optionInput" placeholder="option1" id="option1" required/>
+                </div>
+                <div style="display: flex; flex-direction: row;">
+                    <input type="checkbox" name="checkbox" />
+                    <input type="text" name="option2Input" class="optionInput" placeholder="option2" required/>
+                </div>
+                <div style="display: flex; flex-direction: row;">
+                    <input type="checkbox" name="checkbox" />
+                    <input type="text" name="option3Input" class="optionInput" placeholder="option3" required/>
+                </div>
+                <div style="display: flex; flex-direction: row;">
+                    <input type="checkbox" name="checkbox" />
+                    <input type="text" name="option1Input" class="optionInput" placeholder="option4" required/>
+                </div>
+                <script>
+                    const checkboxs = document.querySelectorAll("input[name=checkbox]");
+                    let correctIndex = 1;
+                    for (let optionIndex = 0; optionIndex < 4; optionIndex++) {
+                        checkboxs[optionIndex].addEventListener('change', function() {
+                        if (this.checked) {
+                            if (correctIndex != 0) {
+                                checkboxs[correctIndex - 1].checked = false;
+                                correctIndex = optionIndex + 1;
+                            }
+                        } else {
+                            checkboxs[optionIndex].checked =true;
+                        }
+                        });
+                    }
+                </script>
+
+                <div class="input-box">
+                    <label for="difficulty">Difficulty</label>
+                    <select id="difficulty" name="difficulty" required>
+                        <option selected disabled hidden value="">select hardness</option>
+                        <option value="easy">Easy</option>
+                        <option value="medium">Medium</option>
+                        <option value="hard">Hard</option>    
+                    </select>
+                </div>
+                
+                <div class="input-box">
+                    <label for="category">Category</label>
+                    <select id="category" name="category" onchange="changeAlert()" required>
+                        <option selected disabled hidden value="">select</option>
+                        <option value="math">math</option>
+                        <option value="animal">animal</option>
+                        <option value="custom">custom</option>
+                    </select>
+                </div>
+
+                <div id="add-cat" hidden>
+                    <input type="text" class="categoryInput" placeholder="add new category..." />
+                    <button type="button" class="categoryButton submit-btn">add</button>
+                </div>
+
+                
+
+                <script>
+                    const categoryInput = document.querySelector('.categoryInput');
+                    const categoryButton = document.querySelector('.categoryButton');
+    
+                    categoryButton.addEventListener('click', function() {
+                        let newOption = document.createElement("option");
+                        newOption.innerText = categoryInput.value;
+                        newOption.setAttribute("value",categoryInput.value);
+                        let selectionBox = document.querySelectorAll("select")[1];
+                        selectionBox.appendChild(newOption);
+                        selectionBox.value = newOption.innerText;
+                        document.getElementById("add-cat").hidden = true;
+                    });
+                    function myFunction() {
+                        let myLinksElement = document.getElementById("myLinks");
+                        if (myLinksElement.style.display === "none") {
+                            myLinksElement.style.display = "block";
+                        } else {
+                            myLinksElement.style.display = "none";
+                         }
+                    }
+
+                    window.onresize = function() {
+                    let myLinksElement = document.getElementById("myLinks");
+                    if (window.innerWidth >= 628) {
+                        myLinksElement.style.display = "flex"; 
+                    } else {
+                        myLinksElement.style.display = "none"; 
+                    }
+                };
+                </script>
+                <button type="submit" class="submit-btn">Submit</button>
+            </div>
+        </form>
+    </div>
+</body>
+</html>

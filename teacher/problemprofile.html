@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <!-- <title>Problem Profile</title> -->
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel='stylesheet' type='text/css' media='screen' href='../style.css'>
+    <link rel='stylesheet' type='text/css' media='screen' href='../problemprofile.css'>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src='../main.js'></script>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="topnav">
+        <a href="index.html">Home</a>
+        <div id="myLinks">
+            <a href="teacher.html">Teachers</a>
+            <a href="student.html">Students</a>
+            <a href="problems.html" class="active">Problems</a>
+            <a href="teacherprofile.html" id="right">Profile</a> 
+        </div>
+        <a  class="icon" onclick="myFunction()">
+            <i class="fa fa-bars"></i>
+        </a>
+    </nav>
+    <main>
+        <form>
+            <h1>
+                Problem title
+            </h1>
+            <span style="font-size: x-large;">
+                <p>
+                    It's paragraph one.
+                </p>
+                <p>
+                    It's paragraph two.
+                </p>
+                <p>
+                    ...
+                </p>
+            </span>
+            <label class="container">One
+            <input type="radio" checked="checked" name="radio">
+            <span class="checkmark"></span>
+            </label>
+            <label class="container">Two
+            <input type="radio" name="radio">
+            <span class="checkmark"></span>
+            </label>
+            <label class="container">Three
+            <input type="radio" name="radio">
+            <span class="checkmark"></span>
+            </label>
+            <label class="container">Four
+            <input type="radio" name="radio">
+            <span class="checkmark"></span>
+            </label>
+            <!-- <button type="submit" class="submit-btn"><a style="display: inherit;" href="problems.html">Submit</a></button> -->
+        </form>
+    <main>
+    <script>
+                function myFunction() {
+            let myLinksElement = document.getElementById("myLinks");
+            if (myLinksElement.style.display === "none") {
+                myLinksElement.style.display = "block";
+            } else {
+                myLinksElement.style.display = "none";
+            }
+        }
+
+        window.onresize = function() {
+        let myLinksElement = document.getElementById("myLinks");
+        if (window.innerWidth >= 628) {
+            myLinksElement.style.display = "flex"; 
+        } else {
+            myLinksElement.style.display = "none"; 
+        }
+    };
+    </script>
+</body>
+</html>

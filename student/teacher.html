@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Teachers page</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel='stylesheet' type='text/css' media='screen' href='style.css'>
+    <link rel='stylesheet' type='text/css' media='screen' href='teacher.css'>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!-- <script src='main.js'></script> -->
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="topnav">
+        <a href="index.html">Home</a>
+        <div id="myLinks">
+            <a href="teacher.html" class="active">Teachers</a>
+            <a href="student.html">Students</a>
+            <a href="problems.html">Problems</a>
+            <a href="login.html" id="right">Log in</a> 
+            <!-- <a href="#">Profile</a> -->
+        </div>
+        <a  class="icon" onclick="myFunction()">
+            <i class="fa fa-bars"></i>
+        </a>
+    </nav>
+    <main>
+        <h1>All Teachers</h1>
+        <table id="teachersTable">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Question #</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><a href="#">Mr. John Doe</a></td>
+                    <td><a href="#">10</a></td>
+                </tr>
+                <tr>
+                    <td><a href="#">Ms. Jane Smith</a></td>
+                    <td><a href="#">8</a></td>
+                </tr>
+                <tr>
+                    <td><a href="#">Dr. Emma Williams</a></td>
+                    <td><a href="#">12</a></td>
+                </tr>
+                <tr>
+                    <td><a href="#">Mr. Alex Johnson</a></td>
+                    <td><a href="#">5</a></td>
+                </tr>
+            </tbody>
+        </table>
+    </main>
+
+    <script>
+        function sortTableByQuestionCount() {
+            let table = document.getElementById("teachersTable");
+            let rows = Array.from(table.rows).slice(1); 
+
+            rows.sort((a, b) => {
+                let questiosA = parseInt(a.cells[1].innerText);
+                let questionsB = parseInt(b.cells[1].innerText);
+                return questionsB - questiosA; 
+            });
+
+            let tbody = table.tBodies[0];
+            tbody.append(...rows);
+        }
+        function myFunction() {
+            let myLinksElement = document.getElementById("myLinks");
+            if (myLinksElement.style.display === "none") {
+                myLinksElement.style.display = "block";
+            } else {
+                myLinksElement.style.display = "none";
+            }
+        }
+
+        window.onresize = function() {
+        let myLinksElement = document.getElementById("myLinks");
+        if (window.innerWidth >= 628) {
+            myLinksElement.style.display = "flex"; 
+        } else {
+            myLinksElement.style.display = "none"; 
+        }
+    };
+
+
+        window.onload = sortTableByQuestionCount;
+    </script>
+</body>
+</html>
