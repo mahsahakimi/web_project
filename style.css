@@ -9,7 +9,7 @@ a {
 }
 
 .topnav a {
-    color: #f5f4f4;
+    color: white;
     padding: 14px 16px;
     font-size: 17px;
     display: flex;
@@ -21,7 +21,7 @@ a {
 }
 
 .topnav .active {
-    background-color: black;
+    background-color: black; 
     color: white;
 }
 
