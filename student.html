@@ -3,21 +3,27 @@
 <head>
     <meta charset='utf-8'>
     <meta http-equiv='X-UA-Compatible' content='IE=edge'>
-    <title>Teachers page</title>
+    <title>Students page</title>
     <meta name='viewport' content='width=device-width, initial-scale=1'>
     <link rel='stylesheet' type='text/css' media='screen' href='style.css'>
     <link rel='stylesheet' type='text/css' media='screen' href='student.css'>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <!-- <script src='main.js'></script> -->
 </head>
 <body>
     <!-- Navbar -->
-    <nav>
+    <nav class="topnav">
         <a href="index.html">Home</a>
-        <a href="teacher.html">Teachers</a>
-        <a href="student.html" class="pwd">Students</a>
-        <a href="problems.html">Problems</a>
-        <a href="login.html">Log in</a> 
-        <!-- <a href="#">Profile</a> -->
+        <div id="myLinks">
+            <a href="teacher.html">Teachers</a>
+            <a href="student.html" class="active">Students</a>
+            <a href="problems.html">Problems</a>
+            <a href="login.html" id="right">Log in</a> 
+            <!-- <a href="#">Profile</a> -->
+        </div>
+        <a  class="icon" onclick="myFunction()">
+            <i class="fa fa-bars"></i>
+        </a>
     </nav>
     <main>
         <h1>All Students</h1>
@@ -59,6 +65,23 @@
             let tbody = table.tBodies[0];
             tbody.append(...rows);
         }
+        function myFunction() {
+            let myLinksElement = document.getElementById("myLinks");
+            if (myLinksElement.style.display === "none") {
+                myLinksElement.style.display = "block";
+            } else {
+                myLinksElement.style.display = "none";
+            }
+        }
+
+        window.onresize = function() {
+        let myLinksElement = document.getElementById("myLinks");
+        if (window.innerWidth >= 628) {
+            myLinksElement.style.display = "flex"; 
+        } else {
+            myLinksElement.style.display = "none"; 
+        }
+    };
 
         window.onload = sortTableByScore;
     </script>

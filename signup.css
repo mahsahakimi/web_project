@@ -1,4 +1,4 @@
-.problem-container {
+.signup-container {
     margin: auto;
     background: #414342;
     padding: 20px;
@@ -13,15 +13,6 @@ h2 {
     margin-bottom: 20px;
 }
 
-.tab-container {
-    display: flex;
-    margin-bottom: 20px;
-}
-
-.tab-content {
-    display: block;
-}
-
 .input-box {
     margin-bottom: 15px;
     position: relative;
@@ -32,7 +23,7 @@ h2 {
     margin-bottom: 5px;
 }
 
-.input-box select {
+.input-box input, .input-box select {
     width: 100%;
     padding: 10px;
     border: 1px solid #ddd;
@@ -45,8 +36,24 @@ h2 {
     background: #fff;
 }
 
+.toggle-password-btn {
+    background: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    padding: 5px;
+    cursor: pointer;
+    font-size: 14px;
+    display: block;
+    width: 100%;
+    margin-top: 5px;
+}
 
-.submit-btn {
+.toggle-password-btn:hover {
+    background: #0056b3;
+}
+
+.signup-btn {
     width: 100%;
     padding: 10px;
     background: #007bff;
@@ -57,22 +64,26 @@ h2 {
     margin-top: 10px;
 }
 
-.submit-btn:hover {
+.signup-btn:hover {
     background: #0056b3;
 }
 
-.input-box input, textarea {
-    width: 100%;
-    padding: 10px;
-    border: 1px solid #ddd;
-    border-radius: 4px;
-    box-sizing: border-box;
-    margin-bottom: 5px;
+p {
+    text-align: center;
+    margin-top: 15px;
 }
 
+p a {
+    color: #007bff;
+    text-decoration: none;
+}
 
-@media only screen and (max-width: 628px) {
-    .problem-container {
+p a:hover {
+    text-decoration: underline;
+}
+
+@media (max-width: 628px) {
+    .signup-container {
         padding: 15px;
         width: 90%;
     }
@@ -81,27 +92,7 @@ h2 {
         font-size: 20px;
     }
 
-    .submit-btn {
+    .signup-btn, .toggle-password-btn {
         padding: 8px;
     }
 }
-
-/* 
-select {
-    background-color: blueviolet;
-}
-
-.categoryInput {
-    /* border-radius: 50px;
-
-}
-
-.categoryButton {
-    /* border-radius: 50px; */
-    /* color: red; */
-    /* background-color: inherit; 
-}
-
-.output {
-    
-} */

@@ -7,17 +7,103 @@
     <meta name='viewport' content='width=device-width, initial-scale=1'>
     <link rel='stylesheet' type='text/css' media='screen' href='style.css'>
     <!-- <link rel='stylesheet' type='text/css' media='screen' href='login.css'> -->
+    <link rel='stylesheet' type='text/css' media='screen' href='login.css'>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <!-- <script src='main.js'></script> -->
 </head>
 <body>
     <!-- Navbar -->
-    <nav>
+    <nav class="topnav">
         <a href="index.html">Home</a>
-        <a href="teacher.html">Teachers</a>
-        <a href="student.html">Students</a>
-        <a href="problems.html">Problems</a>
-        <a href="login.html" class="pwd">Log in</a> 
-        <!-- <a href="#">Profile</a> -->
+        <div id="myLinks">
+            <a href="teacher.html">Teachers</a>
+            <a href="student.html">Students</a>
+            <a href="problems.html">Problems</a>
+            <a href="login.html" class="active" id="right">Log in</a> 
+            <!-- <a href="#">Profile</a> -->
+        </div>
+        <a  class="icon" onclick="myFunction()">
+            <i class="fa fa-bars"></i>
+        </a>
     </nav>
+    <div class="login-container">
+        <h2>Login</h2>
+        <div class="tab-container">
+            <button class="tab-button active" data-tab="players">Players</button>
+            <button class="tab-button" data-tab="teachers">Teachers</button>
+        </div>
+        
+        <form id="players" class="tab-content active">
+            <div class="input-box">
+                <label for="player-email">Email</label>
+                <input type="email" id="player-email" name="player-email" required>
+            </div>
+            <div class="input-box">
+                <label for="player-password">Password</label>
+                <input type="password" id="player-password" name="player-password" required>
+                <button type="button" class="toggle-password-btn" onclick="togglePasswordVisibility('player-password', this)">Show Password</button>
+            </div>
+            <button type="submit" class="login-btn">Login</button>
+        </form>
+        
+        <form id="teachers" class="tab-content">
+            <div class="input-box">
+                <label for="teacher-email">Email</label>
+                <input type="email" id="teacher-email" name="teacher-email" required>
+            </div>
+            <div class="input-box">
+                <label for="teacher-password">Password</label>
+                <input type="password" id="teacher-password" name="teacher-password" required>
+                <button type="button" class="toggle-password-btn" onclick="togglePasswordVisibility('teacher-password', this)">Show Password</button>
+            </div>
+            <button type="submit" class="login-btn">Login</button>
+        </form>
+
+        <p>Don't have an account? <a href="signup.html">Sign up</a></p>
+    </div>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+        const tabButtons = document.querySelectorAll('.tab-button');
+        const tabContents = document.querySelectorAll('.tab-content');
+
+        tabButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                const tabId = button.getAttribute('data-tab');
+
+                // Remove 'active' class from all buttons and contents
+                tabButtons.forEach(btn => btn.classList.remove('active'));
+                tabContents.forEach(content => content.classList.remove('active'));
+
+                // Add 'active' class to the clicked button and the corresponding tab content
+                button.classList.add('active');
+                document.getElementById(tabId).classList.add('active');
+            });
+        });
+    });
+    function togglePasswordVisibility(inputId, toggleButton) {
+        const passwordInput = document.getElementById(inputId);
+        const isPasswordVisible = passwordInput.type === 'text';
+    
+        passwordInput.type = isPasswordVisible ? 'password' : 'text';
+        toggleButton.textContent = isPasswordVisible ? 'Show Password' : 'Hide Password';
+    }
+    function myFunction() {
+            let myLinksElement = document.getElementById("myLinks");
+            if (myLinksElement.style.display === "none") {
+                myLinksElement.style.display = "block";
+            } else {
+                myLinksElement.style.display = "none";
+            }
+        }
+
+        window.onresize = function() {
+        let myLinksElement = document.getElementById("myLinks");
+        if (window.innerWidth >= 628) {
+            myLinksElement.style.display = "flex"; 
+        } else {
+            myLinksElement.style.display = "none"; 
+        }
+    };
+    </script>
 </body>
 </html>
